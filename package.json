@@ -1,0 +1,22 @@
+{
+  "name": "chat-sockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "17.1.0",
+    "turbo": "^1.12.3"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
