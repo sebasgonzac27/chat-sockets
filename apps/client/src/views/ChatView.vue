@@ -1,35 +1,41 @@
 <template>
-    <main>
-        <h1>Este es el chat {{ id }}</h1>
-        <section id="chat">
-            <ul id="messages">
-
-            </ul>
-            <form id="form">
-                <input type="text" name="message" id="input" placeholder="Escribe un mensaje aquí...">
-                <button>></button>
-            </form>
-        </section>
-    </main>
+    <section id="chat">
+        <header id="header">
+            Chat #{{ id }}
+        </header>
+        <ul id="messages">
+            <li v-for="message in messages" :key="message">
+                {{ message }}
+            </li>
+        </ul>
+        <form id="form" :onsubmit="sendMessage">
+            <input type="text" v-model="message" id="input" placeholder="Escribe un mensaje aquí...">
+            <button>></button>
+        </form>
+    </section>
 </template>
 <script setup>
+import { ref } from 'vue';
+
 defineProps({
     id: {
         type: String,
         required: true
     }
 });
+
+const messages = ref([])
+const message = ref('')
+
+function sendMessage(e) {
+    e.preventDefault();
+    messages.value.push(message.value);
+    message.value = ''
+}
 </script>
 
 
 <style scoped lang="scss">
-main {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
 #chat {
     display: flex;
     flex-direction: column;
@@ -39,6 +45,14 @@ main {
     max-width: 500px;
     border: solid 1px #383838;
     border-radius: 4px;
+}
+
+#header {
+    padding: 8px;
+    background-color: #383838;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
 }
 
 #messages {

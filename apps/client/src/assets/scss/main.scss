@@ -12,5 +12,6 @@ body {
     padding: 20px;
     min-height: 100vh;
     min-width: 100vw;
-
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
 }
