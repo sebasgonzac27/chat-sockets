@@ -16,12 +16,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://chat-sockets-server.vercel.app/',
+        target: 'http://localhost:3000/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
       '/socket.io': {
-        target: 'https://chat-sockets-server.vercel.app/',
+        target: 'http://localhost:3000/',
         ws: true
       }
     }
