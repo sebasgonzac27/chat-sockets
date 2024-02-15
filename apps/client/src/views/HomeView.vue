@@ -16,6 +16,7 @@ async function createChat(e) {
     const data = await res.json()
     const { id } = data
     router.push(`/chat/${id}`)
+    user.value = ''
   }
 }
 </script>
