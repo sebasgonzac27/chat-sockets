@@ -16,12 +16,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'chat-sockets-server-eiwc2f4j1-sebasgonzac27.vercel.app',
+        target: 'https://chat-sockets-server-eiwc2f4j1-sebasgonzac27.vercel.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
       '/socket.io': {
-        target: 'chat-sockets-server-eiwc2f4j1-sebasgonzac27.vercel.app',
+        target: 'https://chat-sockets-server-eiwc2f4j1-sebasgonzac27.vercel.app',
         ws: true
       }
     }
