@@ -1,4 +1,4 @@
-import express, { Router } from 'express'
+import express, { Router, cors } from 'express'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import logger from 'morgan'
@@ -7,7 +7,14 @@ const apiRouter = Router()
 
 const app = express()
 const server = createServer(app)
-const io = new Server(server)
+const io = new Server(server, {
+  cors: {
+    origin: '*'
+  }
+}
+)
+
+app.use(cors({ origin: '*' }))
 
 const usersInRooms = {}
 
