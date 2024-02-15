@@ -12,7 +12,7 @@ const { user } = storeToRefs(userStore)
 async function createChat(e) {
   e.preventDefault();
   if (user.value) {
-    const res = await fetch('https://chat-sockets-server.vercel.app/api/random-id')
+    const res = await fetch('https://chat-sockets-server.vercel.app/random-id')
     const data = await res.json()
     const { id } = data
     router.push(`/chat/${id}`)
