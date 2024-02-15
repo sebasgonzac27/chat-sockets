@@ -1,8 +1,9 @@
-import express, { Router, cors } from 'express'
+import express, { Router } from 'express'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import logger from 'morgan'
 import crypto from 'crypto'
+import cors from 'cors'
 const apiRouter = Router()
 
 const app = express()
