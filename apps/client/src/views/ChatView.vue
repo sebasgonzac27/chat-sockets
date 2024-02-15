@@ -20,7 +20,7 @@ onMounted(() => {
     if (!user.value) {
         user.value = prompt('Ingresa tu nombre')
     }
-    socket = io('https://chat-sockets-server.vercel.app/', { auth: { roomId: id, user: user.value } });
+    socket = io('https://chat-sockets-server.vercel.app/socket.io', { auth: { roomId: id, user: user.value } });
 
     socket.on('user joined', (users) => {
         friends.value = [...users].filter((u) => u !== user.value)
